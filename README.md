@@ -11,19 +11,17 @@
 
 ## 字库
 
-字库的准确性和完整性对于 辞典 工具来说至关重要。本词典收集了如下字库：
+字库的准确性和完整性对于 辞典 工具来说至关重要。本词典收集了如下字、词库：
 
 ```text
 |---- chinese-dictionary
-		|---- data						数据
-			|---- character
-				|---- commonly.json    常用字
-				|---- polyphone.json   多音字
-				|---- char.json		   全部字
-		|---- scripts					脚本
+|----|---- data     数据
+|----|----|---- character
+|----|----|---- commonly.json    常用字
+|----|----|---- polyphone.json   多音字
+|----|----|---- char.json        全部字
+|----|---- scripts    脚本
 ```
-
-
 
 ## 线上应用
 
@@ -44,6 +42,7 @@
 
 ## 参考资料
 
+字库的基础数据大都来自 Github 及其他开源组织，本项目字库参考但不限于如下资源：
 
 - [Github] [funNLP](https://github.com/fighting41love/funNLP)
 - [Github] [pinyin-data](https://github.com/mozillazg/pinyin-data)
@@ -60,6 +59,6 @@
 
 该项目是为了支持 **汉语拼音辞典** 的线上数据。在使用小程序的过程中，发现有些汉字读音有误，如果人工校队将是一个庞大的工程，于是对现有的开源语料库进行了多维分析。如果不确定的读音，还参考了部分商业应用如汉典网的数据进行人工比对。
 
-本项目收集得到的数据结果采用 MIT License 开源。
+本项目汇总得到的数据结果采用 MIT License 开源。
 
 并不是说这些数据商业使用没有风险，因为某些收集来的数据，无法确认数据的最初来源，使用它们可能带来风险。
