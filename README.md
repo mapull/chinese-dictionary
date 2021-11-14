@@ -20,11 +20,16 @@
 |---- chinese-dictionary
 |----|---- data     数据
 |----|----|---- character
+|----|----|----|---- char_all.json       总收录汉字 16146
 |----|----|----|---- char_common.json    常用字 3500
 |----|----|----|---- char_most_common.json  最常用字 2500
 |----|----|----|---- char_secondary.json    次常用字 1000
 |----|---- scripts    脚本
 ```
+
+### 为何数据是 JSON 格式
+
+JSON 格式可以方便快捷地转为各种编程语言内部可使用的结构。
 
 ## 线上应用
 
