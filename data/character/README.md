@@ -8,16 +8,27 @@
 
 ```text
 |---- dbjson
+|----|---- char_base.json        汉字 16146
 |----|---- char_common.json      常用字 3500
-|----|---- char_most.json        最常用字 500
-|----|---- char_first.json       常用字 2000
-|----|---- char_secondary.json   次常用字 1000
 |----|---- polyphone.json        多音字 1756
 ```
 
 常用字（3500） = 最常用字（500）+ 较常用字（2000）+ 次常用字（1500） 
 
 ### 数据格式
+
+#### char_base.json 基础汉字
+
+```json
+[
+  {"index": 1, "char": "一", "strokes": 1, "pinyin": ["yī"], "radicals": "一", "frequency": 0}, 
+  {"index": 2770, "char": "咧", "strokes": 9, "pinyin": ["liě", "liē", "lié", "lie"], "radicals": "口", "frequency": 2}
+  {"index": 7467, "char": "砭", "strokes": 9, "pinyin": ["biān"], "radicals": "石", "frequency": 3}
+]
+```
+
+
+#### char_common.json 常用字
 
 ```json
 [
@@ -31,13 +42,7 @@
 - `char` 表示一个汉字。
 - `frequency` 表示使用频率，0 为最常用，1 为较常用，2 为次常用。
 
-不是所有文件中含有 frequency 字段。
-
-- char_most.json 中 frequency 字段为固定值 0
-- char_first.json 中 frequency 字段为固定值 1
-- char_secondary.json 中 frequency 字段为固定值 2
-
-#### 多音字
+#### polyphone.json 多音字
 
 polyphone.json 文件中的多音字包含常用字里多音字的 600 余个和其它非常用字的 1000 余个，共 1756 条数据。
 

@@ -9,18 +9,25 @@
 ```text
 |---- dbjson
 |----|---- char_common.json      常用字 3500
-|----|---- char_most_common.json 最常用字 2500
-|----|---- char_secondary.json   次常用字 1000
+|----|---- polyphone.json        多音字 1756
 ```
 
 ### 数据格式
 
+#### char_common.json 常用字
+
 ```json
-{"index": "1010", "char": "Tom"}
-{"index": "1011", "char": "Jack"}
-{"index": "1012", "char": "Alex"}
+{"index": 1, "char": "一", "frequency": 1}
+{"index": 2, "char": "乙", "frequency": 1}
 ```
 
 - `index` 表示从 1 开始的自然增长序列，默认按照汉字笔画数排序。
 - `char` 表示一个汉字。
 - `frequency` 表示使用频率，1 为最常用，2 为次常用。
+
+#### polyphone.json 多音字
+
+```json
+{"index": 1, "char": "了", "pinyin": ["liǎo", "le"], "frequency": 0, "strokes": 2}
+{"index": 4, "char": "厂", "pinyin": ["chǎng", "ān", "hàn"], "frequency": 0, "strokes": 2}
+```
