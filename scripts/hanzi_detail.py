@@ -3,6 +3,60 @@ import json
 import re
 
 
+def add_word():
+    details = []
+    with open('word_tmp.json', 'r', encoding='utf-8') as words:
+        contents = json.load(words)
+        for single in contents:
+            details.append(single)
+
+        tmp1 = {
+            "word": "囱",
+            "oldword": "囱",
+            "strokes": "7",
+            "pinyin": "cōng",
+            "radicals": "口",
+            "explanation": "囱〈叹〉\n\n 〔烟囱〕炉灶出烟的通路。",
+            "more": "囱 cōng 灶突。今称烟囱〖chimney〗\n 囱,通孔也,灶突也。 -- 《玉篇》"
+        }
+        details.append(tmp1)
+        tmp2 = {
+            "word": "啰",
+            "oldword": "囉",
+            "strokes": "11",
+            "pinyin": "luō",
+            "radicals": "口",
+            "explanation": "啰luō 〔啰唆〕1.说话絮絮叨叨；2.办事不痛快，使人感觉麻烦。均亦作“啰嗦”。\n\n 啰luó 〔啰唣〕吵闹。 \n\n 啰luo 助词，作用大致和”了“一样：这样就好啰！",
+            "more": "啰 ga、a 部首 口 部首笔画 03 总笔画 11  啰嗦 luōsuo 1.言语繁复 啰嗦的社论 2.琐碎;麻烦 这个工作真啰嗦。\n\n 啰唣 luózào 见”罗唣“(luózào) \n\n 啰 luo 【助】 放在句末,表示一种情况或感情\n\n 用在句末表示情况的变化。  放 -- 炮 -- 啰!他有了新的想法啰! \n\n 表示赞叹。 大家都满怀信心啰! 表示祈使。 \n\n 请你们放心啰! 用在句末,表示肯定。 \n\n 他准能办到啰。"
+        }
+        details.append(tmp2)
+
+        tmp3 = {
+            "word": "屎",
+            "oldword": "宩",
+            "strokes": "9",
+            "pinyin": "shǐ",
+            "radicals": "尸",
+            "explanation": "屎shǐ \n\n 大便，粪。\n\n 眼、耳所分泌的东西：眼屎。耳屎。\n\n 嘲笑低能的：屎棋。屎诗。",
+            "more": "屎 shǐ 屎滚尿流shǐgǔn-niàoliú \n 犹“屁滚尿流”。形容惊恐的样子。\n\n  屎壳郎 shǐkelàng 蜣螂。\n\n  屎盆子 shǐpénzi 比喻恶名或坏事。自己做的丢人事,哪能把屎盆子扣别人头上。屎桶shǐtǒng [方言]∶比喻孤傲,无人理睬。他以为自己是什么?屎桶,还两眼向天不看人呢?"
+        }
+        details.append(tmp3)
+
+        tmp4 = {
+            "word": "铝",
+            "oldword": "鋁",
+            "strokes": "11",
+            "pinyin": "lǚ",
+            "radicals": "钅",
+            "explanation": "铝 \n\n 一种金属元素，质地坚韧而轻，有延展性，容易导电。可作飞机、车辆、船、舶、火箭的结构材料。纯铝可做超高电压的电缆。\n\n 铝lǚ 带蓝色的银白色三价金属元素,延展性好,有韧性并能发出〖响亮〗声音,以其轻、良好的导电和导热性能、高反射性和耐氧化而著称,是地壳中含量最丰富的金属,在7%以上〖aluminium〗 -- 元素符号Al。",
+            "more": "铝 lǚ 铝合金lǚhéjīn \n 铝和较少量其他金属如铜、镁或锰组成的合金 。\n\n  铝矿 lǚkuàng  从中可以经济地提炼铝的一种天然矿石。"
+        }
+        details.append(tmp4)
+
+    with open('word.json', "w", encoding="utf-8") as file:
+        file.write(json.dumps(details, ensure_ascii=False))
+
+
 def parse_3500():
     """
     解析 3500 常用字详情
@@ -12,18 +66,16 @@ def parse_3500():
         char_json = json.load(common)
         for char in char_json:
             chars.append(char['char'])
-    print(chars)
+    print(len(chars))
     details = []
-    j = 0
     with open('word.json', 'r', encoding='utf-8') as words:
         contents = json.load(words)
+        print(len(contents))
         for single in contents:
             word = single['word']
             if word in chars:
-                j = j + 1
-                print(j)
                 details.append(single)
-
+    print(len(details))
     with open('char_detail.json', "w", encoding="utf-8") as file:
         file.write(json.dumps(details, ensure_ascii=False))
 
@@ -42,9 +94,10 @@ def find_detail():
                 dic = {'char': word, 'strokes': single['strokes'], 'pinyin': single['pinyin'], 'radicals': single['radicals']}
             else:
                 dic = {'char': word, 'traditional': oldword, 'strokes': single['strokes'], 'pinyin': single['pinyin'], 'radicals': single['radicals']}
-            results.append(dic)
 
-    with open('char_detail_simple.json', "w", encoding="utf-8") as file:
+            results.append(dic)
+    print(len(results))
+    with open('char_detail_tmp.json', "w", encoding="utf-8") as file:
         file.write(json.dumps(results, ensure_ascii=False))
         
 
@@ -178,9 +231,10 @@ def first10():
 
 
 if __name__ == '__main__':
+    # add_word()
     # parse_3500()
-    # find_explanation()
     find_detail()
+    # find_explanation()
     # parse_detail()
     # first10()
     # line = '啊a 1.助词。用在句末表示感叹的语气。 2.助词。用在句末表示肯定﹑辩解﹑催促﹑嘱咐等语气。 3.助词。用在句末表示疑问的语气。 4.助词。用在句中表示停顿。\n\n 5.助词。用在列举的事项之后。'

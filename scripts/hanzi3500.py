@@ -55,6 +55,6 @@ def parse_1000():
 
 
 if __name__ == "__main__":
-    parse_1000()
-    parse_2500()
+    # parse_1000()
+    # parse_2500()
     parse_3500()
