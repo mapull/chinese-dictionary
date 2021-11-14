@@ -186,6 +186,7 @@ def add_word():
     with open('polyphone_all.json', "w", encoding="utf-8") as file:
         file.write(json.dumps(details, ensure_ascii=False))
 
+
 def classify_frequency():
     chars = []
     for content in open('tmp.txt', "r", encoding="utf-8"):
@@ -194,17 +195,47 @@ def classify_frequency():
     print(len(chars))
 
     results = []
+    idx = 0
     with open('polyphone_all.json', 'r', encoding='utf-8') as common:
         char_json = json.load(common)
         for item in char_json:
             char = item['char']
+            idx = idx + 1
+            new_item = {"index": idx}
             if char in chars:
                 item['frequency'] = 0
-            results.append(item)
+            new_item.update(item)
+            results.append(new_item)
 
     results.sort(key=lambda x: x['frequency'])
     print(len(results))
     with open('polyphone.json', 'w', encoding='utf-8') as poly:
+        poly.write(json.dumps(results, ensure_ascii=False))
+
+
+def classify_stroke():
+    details = []
+    with open('char_base.json', 'r', encoding='utf-8') as words:
+        contents = json.load(words)
+        for single in contents:
+            details.append(single)
+    print(len(details))
+
+    results = []
+    with open('polyphone.json', 'r', encoding='utf-8') as common:
+        char_json = json.load(common)
+        for poly in char_json:
+            char = poly['char']
+            detail = next((item for item in details if item['char'] == char), False)
+            if detail:
+                poly['strokes'] = int(detail['strokes'])
+                results.append(poly)
+            else:
+                print(char)
+
+    results.sort(key=lambda x: x['frequency'])
+    print(len(results))
+    with open('polyphone_final.json', 'w', encoding='utf-8') as poly:
         poly.write(json.dumps(results, ensure_ascii=False))
 
 
@@ -215,4 +246,5 @@ if __name__ == '__main__':
     # find_poly_char()
     # add_word()
     # merge_poly_all_char_common()
-    classify_frequency()
+    # classify_frequency()
+    classify_stroke()
