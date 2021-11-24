@@ -22,8 +22,7 @@
 |----|----|---- character
 |----|----|----|---- char_all.json       总收录汉字 16146
 |----|----|----|---- char_common.json    常用字 3500
-|----|----|----|---- char_most_common.json  最常用字 2500
-|----|----|----|---- char_secondary.json    次常用字 1000
+|----|----|----|---- polyphone.json      多音字 1756
 |----|---- scripts    脚本
 ```
 
@@ -37,16 +36,15 @@ JSON 格式可以方便快捷地转为各种编程语言内部可使用的结构
 
 微信小程序：汉语拼音辞典
 
-![微信小程序](https://cdn.mapull.com/char/qrcode/wechat_character.jpg)
+<img alt="微信小程序" src="https://cdn.mapull.com/char/qrcode/wechat_character.jpg"></img>
 
 百度小程序：码谱文字转拼音
 
-![百度小程序](https://cdn.mapull.com/char/qrcode/baidu_character.png)
+<img alt="百度小程序" src="https://cdn.mapull.com/char/qrcode/baidu_character.png"></img>
 
 抖音、字节跳动小程序：汉语拼音辞典
 
-![字节跳动小程序](https://cdn.mapull.com/char/qrcode/toutiao_character.png)
-
+<img alt="字节跳动小程序" src="https://cdn.mapull.com/char/qrcode/toutiao_character.png"></img>
 
 ## 参考资料
 
@@ -65,8 +63,8 @@ JSON 格式可以方便快捷地转为各种编程语言内部可使用的结构
 
 ## 版权
 
-该项目是为了支持 **汉语拼音辞典** 的线上数据。在使用小程序的过程中，发现有些汉字读音有误，如果人工校队将是一个庞大的工程，于是对现有的开源语料库进行了多维分析。如果不确定的读音，还参考了部分商业应用如汉典网的数据进行人工比对。
+该项目是为了支持 **汉语拼音辞典** 的线上数据。在使用小程序的过程中，发现有些汉字读音有误，如果人工校对将是一个庞大的工程，于是对现有的开源语料库进行了多维分析。如果不确定的读音，还参考了部分商业应用如汉典网的数据进行人工比对。
 
 本项目汇总得到的数据结果采用 MIT License 开源。
 
-并不是说这些数据商业使用没有风险，因为某些收集来的数据，无法确认数据的最初来源，使用它们可能带来风险。
+因为某些收集来的数据，无法确认数据的最初来源，使用它们可能带来风险。
