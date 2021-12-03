@@ -8,7 +8,7 @@
 
 ```text
 |---- dbjson
-|----|---- char_base.json        总收录汉字 16146
+|----|---- char_base.json        总收录汉字 14814
 |----|---- char_common.json      常用字 3500
 |----|---- polyphone.json        多音字 1589
 ```
