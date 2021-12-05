@@ -221,7 +221,7 @@ polyphone.json 文件中的多音字包含常用字里多音字的 600 余个和
 
 <img alt="微信小程序" src="https://cdn.mapull.com/char/qrcode/wechat_character.jpg"></img>
 
-百度小程序：码谱文字转拼音
+百度小程序：码谱汉语拼音辞典
 
 <img alt="百度小程序" src="https://cdn.mapull.com/char/qrcode/baidu_character.png"></img>
 
