@@ -50,21 +50,22 @@ JSON 格式可以方便快捷地转为各种编程语言内部可使用的结构
 
 ```json
 [
-  {"index": 1, "char": "一", "strokes": 1, "pinyin": ["yī"], "radicals": "一", "frequency": 0}, 
-  {"index": 2770, "char": "咧", "strokes": 9, "pinyin": ["liě", "liē", "lié", "lie"], "radicals": "口", "frequency": 2},
+  {"index": 52, "char": "反", "strokes": 4, "pinyin": ["fǎn"], "radicals": "又", "frequency": 0, "structure": "R2"}, 
+  {"index": 18, "char": "干", "strokes": 3, "pinyin": ["gān", "gàn"], "radicals": "干", "frequency": 0, "structure": "D0", "traditional": "乾幹", "variant": "乹亁榦"},
+  {"index": 372, "char": "面", "traditional": "麵", "strokes": 9, "pinyin": ["miàn"], "radicals": "面", "frequency": 0, "structure": "D0", "variant": "靣"},
   {"index": 7467, "char": "砭", "strokes": 9, "pinyin": ["biān"], "radicals": "石", "frequency": 3}
 ]
 ```
 
-- `index` 表示从 1 开始的自然增长序列，前8000按照《通用规范汉字表》给的顺序。
-- `char` 表示一个汉字。
+- `index` 表示从 1 开始的自然增长序列，唯一不重复，前8000按照《通用规范汉字表》给的顺序。
+- `char` 表示一个汉字，唯一不重复。
 - `strokes` 汉字的笔画数。
-- `pinyin` 汉字的读音列表。
+- `pinyin` 汉字的读音列表，数组表示，多音字会有多个读音。
 - `radicals` 汉字的读音偏旁部首。
 - `frequency` 表示使用频率，0 为最常用，1 为较常用，2 为次常用，3 为二级字，4 为三级字， 5 为生僻字。
 - `structure` 汉字结构，结构表示的含义见下表。
-- `traditional` 表示繁体字写法。
-- `variant` 表示异体字。
+- `traditional` 表示繁体字写法，可能会有多个。
+- `variant` 表示异体字，可能会有多个。
 
 > 常用字（3500） = 最常用字 0（500）+ 较常用字 1（2000）+ 次常用字 2（1000） 
 
@@ -260,8 +261,8 @@ JSON 格式可以方便快捷地转为各种编程语言内部可使用的结构
 
 - 整体为列表（数组）
 - 每个列表项为一个汉字，不重复
-- 每个汉字一定会出现 3 个属性：汉字char、读音pronunciations
-- 当前汉字 char 不可省略，**不能为空**，且长度为 1
+- 每个汉字一定会出现 2 个属性：汉字char、读音pronunciations
+- 汉字 char 不可省略，**不能为空**，且长度为 1
 - 读音 pronunciations 为列表，如果是多音字会有多个，**不能为空**，其中每一项包含 pinyin 和 explanations 。
 - pinyin 在同一个汉字中数据**不会重复**，且个数等于该汉字的读音个数。
 - explanations 为列表，可能有多个，**可能为空**。其中每一项包含 contents 和 details ，**均可为空，但不可同时为空，且为空时，该字段不会出现**。
@@ -288,7 +289,7 @@ polyphone.json 文件中的多音字包含常用字里多音字的 600 余个和
 
 其中：
 
-- `index` 表示数据索引值，从 1 开始
+- `index` 表示汉字索引值，从 1 开始
 - `char` 表示该汉字
 - `pinyin` 为汉字读音的数组
 - `frequency` 表示使用频率，0 为最常用，1 为较常用，2 为次常用，3 为不常用
