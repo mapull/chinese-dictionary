@@ -26,7 +26,7 @@
 |----|---- data     数据
 |----|----|---- character
 |----|----|----|---- char_base.json             总收录汉字超 20000 拼音与笔画
-|----|----|----|---- char_base_detail.json      总收录汉字超 20000 解释
+|----|----|----|---- char_detail.json           总收录汉字超 20000 解释
 |----|----|----|---- char_common.json           常用字 3500 仅汉字
 |----|----|----|---- char_common_base.json      常用字 3500 拼音与笔画
 |----|----|----|---- char_common_detail.json    常用字 3500 解释
@@ -140,7 +140,7 @@ JSON 格式可以方便快捷地转为各种编程语言内部可使用的结构
 ]
 ```
 
-#### char_explanation.json 汉字解释
+#### char_detail.json 汉字解释
 
 ```json
 [
