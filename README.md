@@ -285,16 +285,16 @@ JSON 格式可以方便快捷地转为各种编程语言内部可使用的结构
 
 - 整体为列表（数组）
 - 每个列表项为一个汉字，不重复
-- 每个汉字一定会出现 2 个属性：汉字char、读音pronunciations
+- 每个汉字一定会出现 2 个属性：汉字char、相关解释pronunciations
 - 汉字 char 不可省略，**不能为空**，且长度为 1
 - 读音 pronunciations 为列表，如果是多音字会有多个，**不能为空**，其中每一项包含 pinyin 和 explanations 。
 - pinyin 在同一个汉字中数据**不会重复**，且个数等于该汉字的读音个数。
-- explanations 为列表，可能有多个，**可能为空**。其中每一项包含 contents 和 details ，**均可为空，但不可同时为空，且为空时，该字段不会出现**。
-- content 中是字符串，一般表示独立的含义。
+- explanations 为列表，可能有多个，**不可为空**。其中每一项包含 content 和 detail ，除非为特殊汉字，否则一定存在 content 字段。
+- content 中是字符串，一般表示独立的含义，其个数基本代表该汉字有多少种解释。
 - speech 词性分类，选自下面的十二种词性，省略后缀'词'。
-- detail 中是字符串列表，一般表示一组有关联的汉字解释，是对 content 的进一步例证。一种 text 是例子，book 是例证出处。
+- detail 中是字符串列表，一般表示一组有关联的汉字解释，是对 content 的进一步例证。其中 text 是文献内容，book 是文献例证出处。
 - words 是一个列表，是当前解释下的词组。其中 word 是词组，text 是词组的简单解释，example 是包含词组的例句。
-- same 为单个汉字，表示当前汉字与 same 含义相同。
+- same 为单个汉字，表示当前汉字与 same 含义相同，表示 同‘X’，通‘X’，见‘X’。
 - modern 为单个汉字，表示当前汉字如今的写法，存在该字段一般说明该汉字已经不使用了。
 - refer 为一个词组，表示汉字含义需要参考某个词组。某些汉字单独出现时没有含义，必须和另外的汉字组词。
 - simplified 为单个汉字，表示当前汉字是某个汉字的繁体字，含义可以参考简体字。
@@ -421,7 +421,7 @@ polyphone.json 文件中的多音字包含常用字里多音字的 600 余个和
 
 <img alt="微信小程序" src="https://cdn.mapull.com/char/qrcode/wechat_character.jpg"></img>
 
-百度小程序：码谱汉语拼音辞典
+百度小程序：码谱汉语拼音词典
 
 <img alt="百度小程序" src="https://cdn.mapull.com/char/qrcode/baidu_character.png"></img>
 
