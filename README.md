@@ -27,10 +27,12 @@
 |----|----|---- character
 |----|----|----|---- char_base.json             总收录汉字超 20000 拼音与笔画
 |----|----|----|---- char_detail.json           总收录汉字超 20000 解释
+|----|----|----|---- polyphone.json             多音字 1589
+|----|----|----|---- related.json               相关字 1677 近义、反义、形近字
+|----|----|----|---- common
 |----|----|----|---- char_common.json           常用字 3500 仅汉字
 |----|----|----|---- char_common_base.json      常用字 3500 拼音与笔画
 |----|----|----|---- char_common_detail.json    常用字 3500 解释
-|----|----|----|---- polyphone.json             多音字 1589
 |----|----|---- idiom
 |----|----|----|---- idiom.json                 总收录成语 近5万 条
 |----|----|---- word
@@ -38,7 +40,7 @@
 |----|---- scripts    脚本
 ```
 
-### 数据格式
+### 汉字
 
 #### 为何数据是 JSON 格式？
 
@@ -102,7 +104,6 @@ JSON 格式可以方便快捷地转为各种编程语言内部可使用的结构
 | - |冈、闲				|上包下					|R5
 | - |函、凶				|下包上					|R6
 
-
 一般认为上面的分类可以覆盖所有的汉字，但是，还有一些分法更细一些：
 
 在独体结构中分出了镶嵌结构，在上下结构中分出了田字结构：
@@ -113,32 +114,6 @@ JSON 格式可以方便快捷地转为各种编程语言内部可使用的结构
 |镶嵌结构		|爽			|　方正			    |D1
 上 下 结 构		|			| 					|B0
 | 田字结构 |叕、茻			|　四部分相同			|B4
-
-
-#### char_common.json 常用字
-
-```json
-[
-  {"id": 4, "char": "十", "frequency": 0},
-  {"id": 278, "char": "乐", "frequency": 1},
-  {"id": 3405, "char": "瞪", "frequency": 2}
-]
-```
-
-- `id` 表示从 1 开始的自然增长序列，默认按照汉字笔画数排序。
-- `char` 表示一个汉字。
-- `frequency` 表示使用频率，0 为最常用，1 为较常用，2 为次常用。
-
-
-#### char_common_base.json 常用字
-
-
-```json
-[
-  {"index": 1, "char": "一", "strokes": 1, "pinyin": ["yī"], "radicals": "一", "frequency": 0},
-  {"index": 16, "char": "大", "strokes": 3, "pinyin": ["dà", "dài", "tài"], "radicals": "大", "frequency": 0}
-]
-```
 
 #### char_detail.json 汉字解释
 
@@ -251,7 +226,7 @@ JSON 格式可以方便快捷地转为各种编程语言内部可使用的结构
         - `variant` 表示该汉字是某个汉字的异体字，含义可参考源字
         - `refer` 为一个词组，表示汉字含义需要参考某个词组。
         - `typo` 当前汉字为某个汉字的讹字（错误形式）。
-        - `unknown` 义未详。
+        - `unknown` 义未详，部分汉字查询不到具体含义，暂时标注为 true。
 
 基本的数据格式如下：
 
@@ -339,6 +314,39 @@ polyphone.json 文件中的多音字包含常用字里多音字的 600 余个和
 - `synonyms` 表示同义字
 - `antonyms` 表示反义字
 - `likeness` 表示形近字
+
+#### char_common.json 常用字
+
+> 考虑到某些场景下，只需要关注 3500 常用字，因此特意建了 common 文件，在其中仅包含常用字 3500 的相关数据。
+
+```json
+[
+  {"index": 4, "char": "十", "frequency": 0},
+  {"index": 278, "char": "乐", "frequency": 1},
+  {"index": 3405, "char": "瞪", "frequency": 2}
+]
+```
+
+- `id` 表示从 1 开始的自然增长序列，默认按照汉字笔画数排序。
+- `char` 表示一个汉字。
+- `frequency` 表示使用频率，0 为最常用，1 为较常用，2 为次常用。
+
+#### char_common_base.json 常用字
+
+文件中数据与 char_base 结构完全一致。
+
+```json
+[
+  {"index": 1, "char": "一", "strokes": 1, "pinyin": ["yī"], "radicals": "一", "frequency": 0},
+  {"index": 16, "char": "大", "strokes": 3, "pinyin": ["dà", "dài", "tài"], "radicals": "大", "frequency": 0}
+]
+```
+
+#### char_common_detail.json 常用字
+
+文件中数据与 char_detail 结构完全一致。
+
+### 词语
 
 #### idiom.json 成语
 
