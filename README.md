@@ -423,13 +423,13 @@ polyphone.json 文件中的多音字包含常用字里多音字的 600 余个和
 
 ## 线上应用
 
-目前 **汉语拼音辞典** 已经在多端上线小程序。
+目前 **汉语拼音词典** 已经在多端上线小程序。
 
 微信小程序：汉语拼音词典
 
-![微信小程序](https://cdn.mapull.com/char/qrcode/character_wechat.jpg)
-
 <img alt="微信小程序" src="https://cdn.mapull.com/char/qrcode/character_wechat.jpg"></img>
+
+图片显示不出来的话，可以[点击这里](https://cdn.mapull.com/char/qrcode/character_wechat.jpg)
 
 百度小程序：码谱汉语拼音词典
 
