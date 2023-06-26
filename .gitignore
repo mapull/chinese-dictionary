@@ -1,2 +1,6 @@
 .git
 .idea
+scripts.zip
+scripts/
+mongo/
+dcloud/
