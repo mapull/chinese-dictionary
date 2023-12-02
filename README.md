@@ -303,7 +303,7 @@ polyphone.json 文件中的多音字包含常用字里多音字的 600 余个和
 
 ```json
 [
-   {"char": "矮", "synonyms": ["低", "矬"], "antonyms": ["高"], "likeness": ["婑"]}
+   {"index": 2946, "char": "矮", "synonyms": ["低", "矬"], "antonyms": ["高"], "likeness": ["婑"]}
 ]
 ```
 其中：
