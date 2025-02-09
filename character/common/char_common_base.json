@@ -1,3 +1,4 @@
+[
 { "index" : 1, "char" : "一", "strokes" : 1, "pinyin" : [ "yī" ], "radicals" : "一", "frequency" : 0, "structure" : "D0" },
 { "index" : 2, "char" : "乙", "strokes" : 1, "pinyin" : [ "yǐ" ], "radicals" : "乙", "frequency" : 1, "structure" : "D0" },
 { "index" : 3, "char" : "二", "strokes" : 2, "pinyin" : [ "èr" ], "radicals" : "二", "frequency" : 0, "structure" : "D0" },
@@ -3498,3 +3499,4 @@
 { "index" : 3498, "char" : "瓤", "strokes" : 22, "pinyin" : [ "ránɡ" ], "radicals" : "瓜", "frequency" : 2, "structure" : "H0" },
 { "index" : 3499, "char" : "罐", "traditional" : "鏆", "strokes" : 23, "pinyin" : [ "ɡuàn" ], "radicals" : "缶", "frequency" : 1, "structure" : "H0", "variant" : "鑵" },
 { "index" : 3500, "char" : "矗", "strokes" : 24, "pinyin" : [ "chù" ], "radicals" : "目", "frequency" : 2, "structure" : "A0" }
+]
